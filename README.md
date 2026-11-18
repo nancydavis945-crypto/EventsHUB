@@ -40,7 +40,7 @@ Public information can change. Directory rates and capacity figures are indicati
 ## What works in the prototype
 
 - Search wedding providers by category, location, date, and guest count.
-- Swipe through local provider profiles, pass or save them to a shortlist, and see a promoted provider card after every two profiles. This models the marketplace's paid-promotion business model for venues, photographers, and other wedding pros; demo placements are labeled and no business has paid to appear.
+- Open directly into a full-screen swipe feed of local provider profiles, pass or save them to a shortlist, and see a randomly selected promoted profile after every three providers. Fictional demo listings are excluded from discovery; ad placements are labeled, and no business has paid to appear.
 - Browse local venue, photography, catering, and wedding-planning sample profiles.
 - Open profiles and public source links, save favorites, and send availability inquiries.
 - Review inquiries in a couple dashboard.
@@ -50,6 +50,6 @@ Public information can change. Directory rates and capacity figures are indicati
 
 ## Prototype limits
 
-There is no real account system, database, geocoding, live map, email delivery, live calendar, advertising payment system, or real booking confirmation. Demo passwords and user roles are client-side examples and must not be used as real authentication. Sponsored feed cards model future paid promotions, but are mock placements in this prototype and no providers have paid. The map area is explicitly a placeholder. Availability must be confirmed by each provider; sending an inquiry is not a booking.
+There is no real account system, database, geocoding, live map, email delivery, live calendar, advertising payment system, or real booking confirmation. Demo passwords and user roles are client-side examples and must not be used as real authentication. Sponsored feed cards model future paid promotions, are randomly selected from sample provider categories, and are mock placements; no providers have paid. The map area is explicitly a placeholder. Availability must be confirmed by each provider; sending an inquiry is not a booking.
 
 The page uses remote Unsplash photos and Google Fonts; a network connection is needed to load these assets.

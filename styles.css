@@ -100,9 +100,29 @@ a { color: inherit; text-decoration: none; }
 .mode-button.active { border-color:var(--green); background:var(--green-pale); color:var(--green-dark); }
 .date-note { color:var(--muted); font-size:10px; margin:0 0 12px; }
 .discovery-layout { width:min(100%,520px); margin:18px auto 36px; }
+.discovery-home { --green:#b64469; --green-dark:#843650; --green-pale:#fbe8ee; --rose:#c55275; --paper:#fffefe; --line:#f2dce4; --shadow:0 22px 65px rgba(145,66,91,.2); height:100vh; height:100dvh; display:grid; place-items:center; overflow:hidden; padding:clamp(12px,2.4vh,24px) clamp(12px,4vw,36px); color:#482f39; background:radial-gradient(circle at 18% 0%,#fff5f7 0,#fcecf1 48%,#f7e8ed 100%); }
+.discovery-home-layout { display:grid; grid-template-rows:auto minmax(0,1fr) auto auto; gap:10px; width:min(100%,520px); height:100%; min-height:0; margin:0; }
+.discovery-home .discovery-progress { margin:0; color:#916b78; }
+.discovery-home .discovery-progress strong { color:#b64469; }
+.discovery-list-link { border:0; background:transparent; color:#a34261; font-size:10px; font-weight:700; padding:5px 8px; }
+.discovery-list-link:hover { text-decoration:underline; }
+.discovery-home .discovery-card { height:100%; min-height:0; border-radius:24px; box-shadow:0 22px 65px rgba(145,66,91,.2); }
+.discovery-home .swipe-profile { width:100%; height:100%; border:1px solid rgba(255,255,255,.9); border-radius:24px; box-shadow:none; }
+.discovery-home .swipe-profile-photo { height:100%; min-height:0; }
+.discovery-home .swipe-profile-category { border-color:rgba(255,255,255,.9); background:rgba(255,246,249,.93); color:#8d3f5b; }
+.discovery-home .swipe-profile-photo .favorite { color:#b64469; }
+.discovery-home .swipe-profile-body .button.secondary { background:#fff4f7; color:#843650; }
+.discovery-home .swipe-controls { margin:0; }
+.discovery-home .swipe-action { border-color:#f0d7df; box-shadow:0 9px 28px rgba(145,66,91,.12); }
+.discovery-home .swipe-action.save { color:#b64469; }
+.discovery-home .swipe-action.save span { color:#b64469; }
+.discovery-home .swipe-action.pass span { color:#bb7281; }
+.discovery-home .swipe-hint { margin:0; color:#946b79; }
+.discovery-home-empty { align-self:center; justify-self:center; text-align:center; }
+.discovery-home-empty p { color:var(--muted); font-size:12px; }
 .discovery-progress { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; color:var(--muted); font-size:11px; }
 .discovery-progress strong { color:var(--green); }
-.discovery-card { overflow:hidden; border-radius:13px; touch-action:pan-y; animation:discovery-enter .22s ease-out; }
+.discovery-card { position:relative; overflow:hidden; border-radius:13px; touch-action:pan-y; animation:discovery-enter .22s ease-out; }
 .swipe-profile { overflow:hidden; border-radius:18px; background:var(--paper); box-shadow:var(--shadow); }
 .swipe-profile-photo { position:relative; min-height:500px; height:min(66vh,620px); background-position:center; background-size:cover; color:#fff; }
 .swipe-profile-category { position:absolute; top:17px; left:17px; border:1px solid rgba(255,255,255,.5); border-radius:20px; background:rgba(35,47,40,.35); padding:8px 12px; color:#fff; font-size:10px; font-weight:700; backdrop-filter:blur(8px); }
@@ -113,12 +133,12 @@ a { color: inherit; text-decoration: none; }
 .swipe-profile-location { color:rgba(255,255,255,.88); font-size:11px; }
 .swipe-profile-summary { display:flex; align-items:end; justify-content:space-between; gap:12px; margin-top:15px; padding-top:12px; border-top:1px solid rgba(255,255,255,.33); font-size:11px; }
 .swipe-profile-summary strong { flex-shrink:0; font-size:14px; }
-.promo-business-note { margin:9px 0 0; color:rgba(255,255,255,.82); font-size:9px; line-height:1.35; }
 .swipe-profile-tags { display:flex; flex-wrap:wrap; gap:6px; margin:11px 0 14px; }
 .swipe-profile-tags span { border:1px solid rgba(255,255,255,.35); border-radius:18px; padding:5px 8px; color:rgba(255,255,255,.94); font-size:9px; }
 .swipe-profile-body .button.secondary { border:0; background:rgba(255,255,255,.95); color:var(--green-dark); }
-.ad-disclosure { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 13px; background:#f6e8e4; color:#744c46; font-size:10px; }
-.ad-disclosure span { color:#806b66; text-align:right; }
+.ad-disclosure { position:absolute; z-index:3; top:13px; left:13px; display:grid; gap:2px; max-width:calc(100% - 26px); padding:7px 10px; border:1px solid rgba(255,255,255,.9); border-radius:11px; background:rgba(255,246,249,.94); color:#8d3f5b; box-shadow:0 5px 18px rgba(81,35,52,.12); font-size:9px; backdrop-filter:blur(8px); }
+.ad-disclosure span { color:#805c69; text-align:left; font-size:8px; line-height:1.2; }
+.ad-disclosure + .swipe-profile .swipe-profile-category { top:62px; }
 .swipe-controls { display:flex; justify-content:center; gap:20px; margin:17px 0 8px; }
 .swipe-action { display:flex; align-items:center; gap:8px; min-width:118px; justify-content:center; border:1px solid var(--line); border-radius:28px; background:var(--paper); color:var(--ink); padding:9px 17px; font-size:12px; font-weight:700; box-shadow:0 5px 18px rgba(49,53,47,.07); }
 .swipe-action span { font-size:20px; line-height:1; }
@@ -221,6 +241,14 @@ td strong { color:var(--ink); }
   .page-header h1 { font-size:31px; }
   .dashboard-grid { grid-template-columns:1fr; }
   .discovery-layout { margin-top:12px; }
+  .discovery-home { padding:12px; }
+  .discovery-home-layout { gap:8px; }
+  .discovery-home .swipe-profile-body { padding:18px 16px 16px; }
+  .discovery-home .swipe-profile-body h2 { font-size:26px; }
+  .discovery-home .swipe-controls { gap:12px; }
+  .discovery-home .swipe-action { min-width:112px; }
+  .ad-disclosure { top:10px; left:10px; }
+  .ad-disclosure + .swipe-profile .swipe-profile-category { top:58px; }
   .swipe-profile-photo { min-height:470px; height:62vh; }
   .swipe-profile-body { padding:20px 17px 17px; }
   .swipe-profile-body h2 { font-size:28px; }
